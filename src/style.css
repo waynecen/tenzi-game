@@ -5,11 +5,54 @@
 
 body {
   background-color: #0B2434;
+  font-size: 16px;
   padding: 20px;
 }
 
 main {
-  background-color: aliceblue;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #F5F5F5;
   height: 400px;
-  max-width: 800px;
+  max-width: 420px;
+  border-radius: 10px;
+}
+
+/* Helpers */
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Game Description */
+.gameDescription {
+  font-family: "Inter", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  padding: 36px;
+}
+
+/* Dice */
+
+.dice {
+  display: flex;
+  justify-content: center;
+  font-family: "Karla", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  align-items: center;
+  margin-right: 18px;
+  margin-bottom: 24px;
+  border-radius: 4px;
+  width: 44px;
+  height: 44px;
+  box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.15);
+
 }
