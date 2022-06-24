@@ -7,6 +7,10 @@ body {
   background-color: #0B2434;
   font-size: 16px;
   padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
 main {
@@ -33,6 +37,7 @@ main {
 
 /* Game Description */
 .gameDescription {
+  text-align: center;
   font-family: "Inter", sans-serif;
   font-size: 1rem;
   font-weight: 400;
@@ -40,19 +45,65 @@ main {
 }
 
 /* Dice */
+.wrapper__dice {
+  display: grid;
+  grid-template: auto auto / repeat(5, 1fr);
+}
 
 .dice {
-  display: flex;
+  display: grid;
   justify-content: center;
+  align-items: center;
   font-family: "Karla", sans-serif;
   font-size: 1.2rem;
   font-weight: 700;
+  margin-left: 12px;
+  margin-right: 12px;
+  margin-bottom: 24px;
+  background-color: white;
+  border-radius: 4px;
+  width: 44px;
+  height: 44px;
+  box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+}
+
+/* Roll Dice Button */
+.button__dice {
+  font-family: "Karla", sans-serif;
+  width: 100px;
+  height: 40px;
+  color: white;
+  margin-top: 12px;
+  background-color: rgba(80, 53, 255, 1);
+  box-shadow: 0px 3.2px 7.7px 0px rgba(0, 0, 0, 0.18);
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+}
+
+.button__dice:focus {
+  outline: none;
+}
+
+.button__dice:active {
+  box-shadow: inset 2px 2px 10px -7px rgba(0, 0, 0, 0.5);
+}
+
+.isFrozen {
+  display: grid;
+  justify-content: center;
   align-items: center;
-  margin-right: 18px;
+  font-family: "Karla", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-left: 12px;
+  margin-right: 12px;
   margin-bottom: 24px;
   border-radius: 4px;
   width: 44px;
   height: 44px;
   box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.15);
-
+  cursor: pointer;
+  background-color: #59E391;
 }
