@@ -1,36 +1,33 @@
 import React from "react";
 import Die from "./components/Die";
-import { nanoid } from "nanoid";
+import Confetti from "react-confetti";
+import { generateNewDie, allNewDice } from "./helper";
 
 export default function App() {
 	const [dice, setDice] = React.useState(allNewDice());
+	const [tenzies, setTenzies] = React.useState(false);
 
-	function getRandomInt(max) {
-		return Math.ceil(Math.random() * max);
-	}
-
-	function generateNewDie() {
-		return {
-			value: getRandomInt(6),
-			isHeld: false,
-			id: nanoid(),
-		};
-	}
-
-	function allNewDice() {
-		let diceArray = [];
-		for (let i = 0; i < 10; i++) {
-			diceArray.push(generateNewDie());
+	// Win condition
+	React.useEffect(() => {
+		const allFrozen = dice.every((die) => die.isFrozen);
+		const firstValue = dice[0].value;
+		const allSameValue = dice.every((die) => die.value === firstValue);
+		if (allFrozen && allSameValue) {
+			setTenzies(true);
 		}
-		return diceArray;
-	}
+	}, [dice]);
 
 	function rollNewDice() {
-		setDice((prevDice) =>
-			prevDice.map((die) => {
-				return die.isFrozen ? die : generateNewDie();
-			})
-		);
+		if (!tenzies) {
+			setDice((prevDice) =>
+				prevDice.map((die) => {
+					return die.isFrozen ? die : generateNewDie();
+				})
+			);
+		} else {
+			setTenzies(false);
+			setDice(allNewDice());
+		}
 	}
 
 	function holdDice(id) {
@@ -54,13 +51,15 @@ export default function App() {
 
 	return (
 		<main>
+			{tenzies && <Confetti />}
+			<h1 className="title">Tenzi</h1>
 			<p className="gameDescription">
 				Roll until all dice are the same. Click each die to freeze it at
 				its current value between rolls. Try to get the fastest time!
 			</p>
 			<div className="wrapper__dice">{diceElements}</div>
 			<button className="button__dice" onClick={rollNewDice}>
-				Roll dice
+				{tenzies ? "New Game" : "Roll dice"}
 			</button>
 		</main>
 	);

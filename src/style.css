@@ -20,8 +20,9 @@ main {
   align-items: center;
   background-color: #F5F5F5;
   height: 400px;
-  max-width: 420px;
+  min-width: 400px;
   border-radius: 10px;
+  padding: 16px;
 }
 
 /* Helpers */
@@ -35,13 +36,21 @@ main {
   flex-direction: column;
 }
 
+/* Title */
+.title {
+  font-family: "Karla", sans-serif;
+  font-size: 2.4rem;
+  margin-bottom: 8px;
+}
+
 /* Game Description */
 .gameDescription {
   text-align: center;
   font-family: "Inter", sans-serif;
   font-size: 1rem;
   font-weight: 400;
-  padding: 36px;
+  max-width: 340px;
+  margin-bottom: 32px;
 }
 
 /* Dice */
