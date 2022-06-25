@@ -61,9 +61,7 @@ main {
 }
 
 .dice {
-  display: grid;
-  justify-content: center;
-  align-items: center;
+  display: flex;
   font-family: "Karla", sans-serif;
   font-size: 1.2rem;
   font-weight: 700;
@@ -76,6 +74,93 @@ main {
   height: 44px;
   box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.15);
   cursor: pointer;
+}
+
+.dot {
+  display: block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color:rgb(46, 46, 46);
+}
+
+.--1 {
+  width: 44px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+}
+
+.--2 {
+  width: 44px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 5px;
+}
+
+.--2 .dot:nth-of-type(2) {
+  display: flex;
+  align-self: flex-end;
+}
+
+.--3 {
+  width: 44px;
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+}
+
+.--3 .dot:nth-of-type(2) {
+  align-self: center;
+}
+
+.--3 .dot:nth-of-type(3) {
+  align-self: flex-end;
+}
+
+.--4 {
+  padding: 5px;
+  width: 44px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.--4 .column {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.--5 {
+  padding: 5px;
+  width: 44px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.--5 .column:nth-of-type(2) {
+  justify-content: center;
+}
+
+.--5 .column {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.--6 {
+  padding: 5px;
+  width: 44px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.--6 .column {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 /* Roll Dice Button */
