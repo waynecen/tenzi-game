@@ -41,9 +41,7 @@ export default function App() {
 			if (!currentBestTime) {
 				localStorage.setItem("bestTime", JSON.stringify(time));
 			} else if (time < currentBestTime) {
-				setBestTime(
-					localStorage.setItem("bestTime", JSON.stringify(time))
-				);
+				setBestTime(time);
 			}
 		}
 	}, [tenzies, time]);
