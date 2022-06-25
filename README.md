@@ -10,23 +10,21 @@ const [rollCount, setRollCount] = React.useState(0);
 
 function rollNewDice() {
 	// tenzies is another state keeping track of the win condition
-	if (!tenzies) {
-		setRollCount((prevCount) => prevCount + 1);
-	} else {
-		setRollCount(0);
-	}
+    if (!tenzies) {
+        setRollCount((prevCount) => prevCount + 1);
+    } else {
+        setRollCount(0);
+    }
 }
-
-return {rollCount}
 ```
 
 #### Conditionally rendering dot faces with props:
 ```javascript
 // if value is 1, render class with props.value
 {value === 1 && (
-	<div className={`--${value}`}>
-		<span class="dot"></span>
-	</div>
+    <div className={`--${value}`}>
+        <span class="dot"></span>
+    </div>
 )}
 ```
 
