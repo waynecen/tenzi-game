@@ -4,6 +4,22 @@ A game of dice where the goal is to hold ten dice of the same value. Try to get 
 ## 🏃 Motivation & Challenges
 This project was created to practice using React and apply what I learned about React Hooks
 
+#### Tracking amount of rolls:
+```javascript
+const [rollCount, setRollCount] = React.useState(0);
+
+function rollNewDice() {
+	// tenzies is another state keeping track of the win condition
+	if (!tenzies) {
+		setRollCount((prevCount) => prevCount + 1);
+	} else {
+		setRollCount(0);
+	}
+}
+
+return {rollCount}
+```
+
 #### Conditionally rendering dot faces with props:
 ```javascript
 // if value is 1, render class with props.value
@@ -16,7 +32,7 @@ This project was created to practice using React and apply what I learned about 
 
 ## 🚧 To Do
 - [x] Add dots instead of numbers to dice
-- [ ] Track number of rolls
+- [x] Track number of rolls
 - [ ] Track time to win
 - [ ] Save best time in localStorage
 

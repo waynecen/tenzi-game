@@ -6,6 +6,7 @@ import { generateNewDie, allNewDice } from "./helper";
 export default function App() {
 	const [dice, setDice] = React.useState(allNewDice());
 	const [tenzies, setTenzies] = React.useState(false);
+	const [rollCount, setRollCount] = React.useState(0);
 
 	// Win condition
 	React.useEffect(() => {
@@ -24,8 +25,10 @@ export default function App() {
 					return die.isFrozen ? die : generateNewDie();
 				})
 			);
+			setRollCount((prevCount) => prevCount + 1);
 		} else {
 			setTenzies(false);
+			setRollCount(0);
 			setDice(allNewDice());
 		}
 	}
@@ -55,8 +58,10 @@ export default function App() {
 			<h1 className="title">Tenzi</h1>
 			<p className="gameDescription">
 				Roll until all dice are the same. Click each die to freeze it at
-				its current value between rolls. Try to get the fastest time!
+				its current value between rolls. <br></br> Try to get the
+				fastest time!
 			</p>
+			<h3 className="counter--roll">Times Rolled: {rollCount}</h3>
 			<div className="wrapper__dice">{diceElements}</div>
 			<button className="button__dice" onClick={rollNewDice}>
 				{tenzies ? "New Game" : "Roll dice"}

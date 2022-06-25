@@ -7,7 +7,6 @@
 body {
   background-color: #0B2434;
   font-size: 16px;
-  padding: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -22,7 +21,8 @@ main {
   align-items: center;
   background-color: #F5F5F5;
   height: 420px;
-  min-width: 420px;
+  width: 420px;
+  padding: 24px;
   border-radius: 10px;
 }
 
@@ -40,18 +40,19 @@ main {
 /* Title */
 .title {
   font-family: "Karla", sans-serif;
-  font-size: 2.4rem;
-  margin-bottom: 8px;
+  font-size: 2.2rem;
+  margin-bottom: 4px;
 }
 
 /* Game Description */
 .gameDescription {
+  color: rgb(88, 88, 88);
   text-align: center;
   font-family: "Inter", sans-serif;
-  font-size: 1rem;
+  font-size: 0.95rem;
+  line-height: 1.2rem;
   font-weight: 400;
-  max-width: 340px;
-  margin-bottom: 32px;
+  margin-bottom: 16px;
 }
 
 /* Dice */
@@ -198,5 +199,14 @@ main {
   height: 44px;
   box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.15);
   cursor: pointer;
-  background-color: #fdca20;
+  background-color: #eebd1e;
+}
+
+/* Roll Counter */
+.counter--roll {
+  color:rgb(41, 41, 41);
+  width: 130px;
+  margin-bottom: 24px;
+  font-family: "Karla", sans-serif;
+  font-size: 1rem;
 }
