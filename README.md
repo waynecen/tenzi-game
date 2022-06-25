@@ -28,27 +28,27 @@ function rollNewDice() {
 )}
 ```
 
-#### Keeps track of time:
+#### Using localStorage to keep track of best time:
 ```javascript
 React.useEffect(() => {
-    if (!tenzies) {
-        let tick = setInterval(() => {
-            setTime((prevTime) => prevTime + 1);
-        }, 1000);
-        return () => {
-            clearInterval(tick);
-        };
-    } else {
-        setTime((prevTime) => prevTime);
+    const currentBestTime = localStorage.getItem("bestTime");
+    if (tenzies) {
+        if (!currentBestTime) {
+            localStorage.setItem("bestTime", JSON.stringify(time));
+        } else if (time < currentBestTime) {
+            setBestTime(
+                localStorage.setItem("bestTime", JSON.stringify(time))
+            );
+        }
     }
-}, [tenzies]);
+}, [tenzies, time]);
 ```
 
 ## 🚧 To Do
 - [x] Add dots instead of numbers to dice
 - [x] Track number of rolls
 - [x] Track time to win
-- [ ] Save best time in localStorage
+- [x] Save best time in localStorage
 
 Preview
 ---

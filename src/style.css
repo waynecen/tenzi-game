@@ -203,24 +203,16 @@ main {
 }
 
 /* Statistics */
-.timer, .counter--roll {
-  color:rgb(41, 41, 41);
-  width: 140px;
-  margin-bottom: 24px;
+.bestTimer, .timer, .counter--roll {
   font-family: "Karla", sans-serif;
   font-size: 1rem;
-}
-
-.timer {
-  justify-content: flex-start;
-}
-
-.counter--roll {
-  justify-content: flex-end;
+  color:rgb(41, 41, 41);
+  margin-bottom: 24px;
+  text-align: center;
 }
 
 .wrapper__stats {
   display: flex;
-  justify-content: space-between;
-  width: 350px;
+  width: 400px;
+  justify-content: space-around;
 }

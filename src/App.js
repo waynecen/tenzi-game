@@ -8,6 +8,9 @@ export default function App() {
 	const [tenzies, setTenzies] = React.useState(false);
 	const [rollCount, setRollCount] = React.useState(0);
 	const [time, setTime] = React.useState(0);
+	const [bestTime, setBestTime] = React.useState(
+		JSON.parse(localStorage.getItem("bestTime")) || []
+	);
 
 	React.useEffect(() => {
 		const allFrozen = dice.every((die) => die.isFrozen);
@@ -32,6 +35,19 @@ export default function App() {
 		}
 	}, [tenzies]);
 
+	React.useEffect(() => {
+		const currentBestTime = localStorage.getItem("bestTime");
+		if (tenzies) {
+			if (!currentBestTime) {
+				localStorage.setItem("bestTime", JSON.stringify(time));
+			} else if (time < currentBestTime) {
+				setBestTime(
+					localStorage.setItem("bestTime", JSON.stringify(time))
+				);
+			}
+		}
+	}, [tenzies, time]);
+
 	function rollNewDice() {
 		if (!tenzies) {
 			setDice((prevDice) =>
@@ -45,6 +61,7 @@ export default function App() {
 			setRollCount(0);
 			setDice(allNewDice());
 			setTime(0);
+			setBestTime(localStorage.getItem("bestTime"));
 		}
 	}
 
@@ -78,8 +95,18 @@ export default function App() {
 				fastest time!
 			</p>
 			<div className="wrapper__stats flex-row">
-				<h3 className="counter--roll">Times Rolled: {rollCount}</h3>
-				<h3 className="timer">Elapsed Time: {time}s</h3>
+				<h3 className="counter--roll">
+					Rolls
+					<p>{rollCount}</p>
+				</h3>
+				<h3 className="bestTimer">
+					Best Time
+					<p>{bestTime}s</p>
+				</h3>
+				<h3 className="timer">
+					Time
+					<p>{time}s</p>
+				</h3>
 			</div>
 			<div className="wrapper__dice">{diceElements}</div>
 			<button className="button__dice" onClick={rollNewDice}>
