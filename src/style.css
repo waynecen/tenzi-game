@@ -202,11 +202,25 @@ main {
   background-color: #eebd1e;
 }
 
-/* Roll Counter */
-.counter--roll {
+/* Statistics */
+.timer, .counter--roll {
   color:rgb(41, 41, 41);
-  width: 130px;
+  width: 140px;
   margin-bottom: 24px;
   font-family: "Karla", sans-serif;
   font-size: 1rem;
+}
+
+.timer {
+  justify-content: flex-start;
+}
+
+.counter--roll {
+  justify-content: flex-end;
+}
+
+.wrapper__stats {
+  display: flex;
+  justify-content: space-between;
+  width: 350px;
 }

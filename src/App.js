@@ -7,8 +7,8 @@ export default function App() {
 	const [dice, setDice] = React.useState(allNewDice());
 	const [tenzies, setTenzies] = React.useState(false);
 	const [rollCount, setRollCount] = React.useState(0);
+	const [time, setTime] = React.useState(0);
 
-	// Win condition
 	React.useEffect(() => {
 		const allFrozen = dice.every((die) => die.isFrozen);
 		const firstValue = dice[0].value;
@@ -17,6 +17,26 @@ export default function App() {
 			setTenzies(true);
 		}
 	}, [dice]);
+
+	React.useEffect(() => {
+		const noneFrozen = dice.every((die) => !die.isFrozen);
+		if (noneFrozen) {
+			setTime(0);
+		}
+	}, [dice]);
+
+	React.useEffect(() => {
+		if (!tenzies) {
+			let tick = setInterval(() => {
+				setTime((prevTime) => prevTime + 1);
+			}, 1000);
+			return () => {
+				clearInterval(tick);
+			};
+		} else {
+			setTime(time);
+		}
+	}, [tenzies, time]);
 
 	function rollNewDice() {
 		if (!tenzies) {
@@ -49,6 +69,7 @@ export default function App() {
 			key={die.id}
 			value={die.value}
 			isFrozen={die.isFrozen}
+			clicked={() => console.log("clicked")}
 		/>
 	));
 
@@ -61,7 +82,10 @@ export default function App() {
 				its current value between rolls. <br></br> Try to get the
 				fastest time!
 			</p>
-			<h3 className="counter--roll">Times Rolled: {rollCount}</h3>
+			<div className="wrapper__stats flex-row">
+				<h3 className="counter--roll">Times Rolled: {rollCount}</h3>
+				<h3 className="timer">Elapsed Time: {time}s</h3>
+			</div>
 			<div className="wrapper__dice">{diceElements}</div>
 			<button className="button__dice" onClick={rollNewDice}>
 				{tenzies ? "New Game" : "Roll dice"}
