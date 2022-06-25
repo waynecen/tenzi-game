@@ -3,7 +3,7 @@ import { nanoid } from "nanoid";
 export function generateNewDie() {
 	return {
 		value: Math.ceil(Math.random() * 6),
-		isHeld: false,
+		isFrozen: false,
 		id: nanoid(),
 	};
 }

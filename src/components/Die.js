@@ -64,7 +64,6 @@ export default function Die({ value, isFrozen, holdDice }) {
 					</div>
 				</div>
 			)}
-			{/* <p>{value}</p> */}
 		</div>
 	);
 }

@@ -28,10 +28,26 @@ function rollNewDice() {
 )}
 ```
 
+#### Keeps track of time:
+```javascript
+React.useEffect(() => {
+    if (!tenzies) {
+        let tick = setInterval(() => {
+            setTime((prevTime) => prevTime + 1);
+        }, 1000);
+        return () => {
+            clearInterval(tick);
+        };
+    } else {
+        setTime((prevTime) => prevTime);
+    }
+}, [tenzies]);
+```
+
 ## 🚧 To Do
 - [x] Add dots instead of numbers to dice
 - [x] Track number of rolls
-- [ ] Track time to win
+- [x] Track time to win
 - [ ] Save best time in localStorage
 
 Preview

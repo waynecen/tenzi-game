@@ -13,15 +13,9 @@ export default function App() {
 		const allFrozen = dice.every((die) => die.isFrozen);
 		const firstValue = dice[0].value;
 		const allSameValue = dice.every((die) => die.value === firstValue);
+
 		if (allFrozen && allSameValue) {
 			setTenzies(true);
-		}
-	}, [dice]);
-
-	React.useEffect(() => {
-		const noneFrozen = dice.every((die) => !die.isFrozen);
-		if (noneFrozen) {
-			setTime(0);
 		}
 	}, [dice]);
 
@@ -34,9 +28,9 @@ export default function App() {
 				clearInterval(tick);
 			};
 		} else {
-			setTime(time);
+			setTime((prevTime) => prevTime);
 		}
-	}, [tenzies, time]);
+	}, [tenzies]);
 
 	function rollNewDice() {
 		if (!tenzies) {
@@ -50,6 +44,7 @@ export default function App() {
 			setTenzies(false);
 			setRollCount(0);
 			setDice(allNewDice());
+			setTime(0);
 		}
 	}
 
