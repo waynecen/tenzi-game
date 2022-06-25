@@ -1,4 +1,4 @@
-# <div align="center"><center>[Tenzi]()</div>
+# <div align="center"><center>[Tenzi](https://tenzi-game.vercel.app/)</div>
 A game of dice where the goal is to hold ten dice of the same value. Try to get the fastest time!
 
 ## 🏃 Motivation
