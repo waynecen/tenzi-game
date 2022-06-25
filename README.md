@@ -9,7 +9,7 @@ This project was created to practice using React and apply what I learned about 
 const [rollCount, setRollCount] = React.useState(0);
 
 function rollNewDice() {
-	// tenzies is another state keeping track of the win condition
+    // tenzies is another state keeping track of the win condition
     if (!tenzies) {
         setRollCount((prevCount) => prevCount + 1);
     } else {
